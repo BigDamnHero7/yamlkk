@@ -1,0 +1,50 @@
+--- 
+
+name: "firstworkflow with devops class" 
+
+  
+
+run-name: | 
+
+      "firstworkflow with devops class triggered by ${{github.actor}} 
+
+      with ${{github.event_name}} event 
+
+      on branch ${{github.repository}}" 
+
+  
+
+on: 
+
+push: 
+
+   branches: 
+
+     - main 
+
+pull_request: 
+
+   branches: 
+
+     - main 
+
+workflow_dispatch: 
+
+  
+
+jobs: 
+
+  first-job: 
+
+    runs-on: ubuntu-latest 
+
+    steps: 
+
+      - name: Checking out to a repository 
+
+        uses: actions/checkout@v4 
+
+      - name: Printing the content of the file 
+
+        run:  echo "hello world"
+...
